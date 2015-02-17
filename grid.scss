@@ -1,174 +1,172 @@
 /* 
-	17/12/2013
-	V 1.0
-	grid.scss 
-	@import "grid";
-	
-	mettre dans template header
-	{literal}
-		<!--[if lt IE 9]>
-			<script src="http://static.clikeo.fr/css3-mediaqueries.js"></script>
-		<![endif]-->
-	{/literal}
+    17/12/2013
+    V 1.0
+    grid.scss 
+    @import "grid";
+    
+    mettre dans template header
+    {literal}
+        <!--[if lt IE 9]>
+            <script src="http://static.clikeo.fr/css3-mediaqueries.js"></script>
+        <![endif]-->
+    {/literal}
 
 */
 /* ========================================================================== *\
    Grille Clikeo
 \* ========================================================================== */
-$base-font-size	: 16px;
-$gutter-width 	: 20px;
-$page-width		: 1080px;
+$base-font-size : 16px;
+$gutter-width   : 20px;
+$page-width     : 1080px;
 
-$max-with-small	: em(640px);  /* 40em */
+$max-with-small : em(640px);  /* 40em */
 $min-with-medium: em(641px);  /* 40.063em */
 $max-with-medium: em(979px); /* 64em */
-$min-with-large	: em(980px); /* 89.938em */
-$max-with-large	: em(1440px); /* 90em */
+$min-with-large : em(980px); /* 89.938em */
+$max-with-large : em(1440px); /* 90em */
 
 *, *:before, *:after {
-  -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box;
+	-moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box;
 }
 
 @mixin clearfix() {
-  &:before,
-  &:after {
-    content: " "; 
-    display: table; 
-  }
-  &:after {
-    clear: both;
-  }
+  	&:before,
+  	&:after {
+	    content: " "; 
+	    display: table; 
+  	}
+  	&:after {
+	    clear: both;
+  	}
 }
 @mixin make-col($nombre-colonne,$nombre-colonne-max) {
- 	width: (100%/$nombre-colonne-max*$nombre-colonne); 	
+    width: (100%/$nombre-colonne-max*$nombre-colonne);  
 }
 @mixin make-offset-left($nombre-colonne,$nombre-colonne-max) {
- 	margin-left : (100%/$nombre-colonne-max*$nombre-colonne);
+    margin-left : (100%/$nombre-colonne-max*$nombre-colonne);
 }
 @mixin make-offset-right($nombre-colonne,$nombre-colonne-max) {
- 	margin-right : (100%/$nombre-colonne-max*$nombre-colonne);
+    margin-right : (100%/$nombre-colonne-max*$nombre-colonne);
 }
 
 img, object, embed {
-	max-width: 100%;
-	height: auto; 
+    max-width: 100%;
+    height: auto; 
 }
 
 img {
-  	-ms-interpolation-mode: bicubic; 
-  	display: inline-block;
-  	vertical-align: middle; 
+    -ms-interpolation-mode: bicubic; 
+    display: inline-block;
+    vertical-align: middle; 
 }
 
 a:hover {
-  	cursor: pointer; 
+    cursor: pointer; 
 }
 
 .hide { display:none !important; }
 
 /* COMPORTEMENT D'UNE LIGNE */
 .clk-row {
-  	width: 100%;
-  	margin-left: auto;
-  	margin-right: auto;
-  	margin-top: 0;
- 	
-  	max-width:em($page-width);
-  	*zoom: 1; 
- 	/*overflow: hidden;*/
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 0;
+    
+    max-width:em($page-width);
+    *zoom: 1; 
+    /*overflow: hidden;*/
 
- 	@include clearfix();
- 	
- 	&.pb{ padding-bottom:em($gutter-width/2); }
- 	&.pt{ padding-top:em($gutter-width/2); }
- 	&.mb{ margin-bottom:em($gutter-width/2); }
- 	&.mt{ margin-top:em($gutter-width/2); }
- 	&.pb2{ padding-bottom:em($gutter-width); }
- 	&.pt2{ padding-top:em($gutter-width); }
- 	&.mb2{ margin-bottom:em($gutter-width); }
- 	&.mt2{ margin-top:em($gutter-width); }
+    @include clearfix();
+    
+    &.pb{ padding-bottom:em($gutter-width/2); }
+    &.pt{ padding-top:em($gutter-width/2); }
+    &.mb{ margin-bottom:em($gutter-width/2); }
+    &.mt{ margin-top:em($gutter-width/2); }
+    &.pb2{ padding-bottom:em($gutter-width); }
+    &.pt2{ padding-top:em($gutter-width); }
+    &.mb2{ margin-bottom:em($gutter-width); }
+    &.mt2{ margin-top:em($gutter-width); }
  
- 	&.collapse > [class*='col-'] {
-		padding-left: 0;
-		padding-right: 0;
- 	}
+    &.collapse > [class*='col-'] {
+        padding-left: 0;
+        padding-right: 0;
+    }
 
-  	& & {
-	    width: auto;
-	    max-width: none;
-	    *zoom: 1; 
-	 	@include clearfix();
-		&.collapse {
-      		width: auto;
-      		margin: 0;
-      		max-width: none;
-      		*zoom: 1; 
-      		&:before, &:after {
-        		content: " ";
-        		display: table; 
-        	}
-			&:after {
-        		clear: both; 
-        	}
-		}
-	}
+    & & {
+        width: auto;
+        max-width: none;
+        *zoom: 1; 
+        @include clearfix();
+        &.collapse {
+            width: auto;
+            margin: 0;
+            max-width: none;
+            *zoom: 1; 
+            &:before, &:after {
+                content: " ";
+                display: table; 
+            }
+            &:after {
+                clear: both; 
+            }
+        }
+    }
 
 }
 
 
 
 [class*="block-"] {
-  	display: block;
-  	padding: 0;
-  	margin: 0 em(10px);
-  	*zoom: 1; 
-  	@include clearfix();
-  	& > li {
- 		background:none;
- 		list-style: none;
-   		display: inline; 
-    	height: auto;
-		width: 100%;
-    	float: left;
-    	margin:0;
-    	padding:0;
+    display: block;
+    padding: 0;
+    margin: 0 em(10px);
+    *zoom: 1; 
+    @include clearfix();
+    & > li {
+        background:none;
+        list-style: none;
+        display: inline; 
+        height: auto;
+        width: 100%;
+        float: left;
+        margin:0;
+        padding:0;
     }
- 	&.collapse > li {
-		padding: 0;
- 	}
- 	&.collapse {
-		margin: 0;
- 	}
+    &.collapse > li {
+        padding: 0;
+    }
+    &.collapse {
+        margin: 0;
+    }
 
 }
 [class*='col-'] {
-	width: 100%;
-	float: left;
-	position:relative;
-  	// Prevent columns from collapsing when empty
-  	min-height: em(1px);
-	padding-left: em($gutter-width/2);
-	padding-right: em($gutter-width/2);
-  	-moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box;
-  	&.collapse {
-  		&:first-child{
-			padding-left: 0;
-  		}
-  		&:last-child{
-			padding-right: 0;
-  		}
-	}
+    width: 100%;
+    float: left;
+    position:relative;
+    // Prevent columns from collapsing when empty
+    min-height: em(1px);
+    padding-left: em($gutter-width/2);
+    padding-right: em($gutter-width/2);
+    -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box;
+    &.collapse {
+        &:first-child{
+            padding-left: 0;
+        }
+        &:last-child{
+            padding-right: 0;
+        }
+    }
 }
 
 
+.col-push-right     { float: right !important; }
+.col-push-center    { margin-left:auto;margin-right:auto;display:block !important; }
+.col-push-left      { float: left !important; }
 
-
-.col-push-right 	{ float: right !important; }
-.col-push-center 	{ margin-left:auto;margin-right:auto;display:block !important; }
-.col-push-left 		{ float: left !important; }
-
-.col-text-right	 { text-align:right; }
-.col-text-left	 { text-align:left; }
+.col-text-right  { text-align:right; }
+.col-text-left   { text-align:left; }
 .col-text-center { text-align:center; }
 
 .col-pl{ padding-left:em($gutter-width/2)!important; }
@@ -184,240 +182,240 @@ a:hover {
 .col-no-padding{ padding-left:0 !important;padding-right:0 !important; }
 
 $media : 's';
-	@media only screen and (min-width: 1em) {
-		.col-#{$media}-1   			{ @include make-col(1,1) };
-		.col-#{$media}-no-padding   { padding-left:0;padding-right:0; };
-		@each $nbcol in 2,3,4,10,12 {
-		  	@for $i from 1 through $nbcol {
-				.col-#{$media}-#{$i}-#{$nbcol}   { @include make-col($i,$nbcol ) };
-				.#{$media}-offset-#{$i}-#{$nbcol} { @include make-offset-left($i,$nbcol ); }  ;
-				.#{$media}-offset-right-#{$i}-#{$nbcol} { @include make-offset-right($i,$nbcol ); } 
-			}
-		}
-		@each $nbcol in 1,2,3,4,5,6,7,10,12,24 {
-			.block-#{$media}-#{$nbcol} > li {
-	    		width: 100%/$nbcol;
-	  		  	padding: 0 em($gutter-width/2) em($gutter-width) em($gutter-width/2); 
-	    		&:nth-of-type(n) { clear: none;  }
-   				&:nth-of-type(#{$nbcol}n+1) { clear: both; }
-   			}
-   		}
-		/* margin et padding col */
-		.col-#{$media}-pb{ padding-bottom:em($gutter-width/2); }
-		.col-#{$media}-pt{ padding-top:em($gutter-width/2); }
-		.col-#{$media}-mb{ margin-bottom:em($gutter-width/2); }
-		.col-#{$media}-mt{ margin-top:em($gutter-width/2); }
-	}
-	@media only screen and (max-width: $max-with-small) {
-		.col-#{$media}-clear		{ clear:left;}     
-		.col-#{$media}-text-right	{ text-align:right; }
-		.col-#{$media}-text-left	{ text-align:left; }
-		.col-#{$media}-text-center 	{ text-align:center; }
-		.hide-s { display:none !important; }
-		.show-s { display:block; }
-		.full-s { width:100%; }
-		.text-right-s	 { text-align:right; }
-		.text-left-s	 { text-align:left; }
-		.text-center-s { text-align:center; }
-	}
-	@media only screen and (max-width: $max-with-small)  and (max-width: $min-with-medium) {
-		.s-only-no-padding   { padding-left:0;padding-right:0; };
-		.s-collapse {
-	  		&:first-child{ padding-left: 0; }
-	  		&:last-child{ padding-right: 0;	}
-		}
-		.col-s-push-right 	{ float: right; }
-		.col-s-push-center 	{ margin-left:auto;margin-right:auto;display:block !important; }
-		.col-s-push-left 		{ float: left; }
-	}
-	
+    @media only screen and (min-width: 1em) {
+        .col-#{$media}-1            { @include make-col(1,1) };
+        .col-#{$media}-no-padding   { padding-left:0;padding-right:0; };
+        @each $nbcol in 2,3,4,10,12 {
+            @for $i from 1 through $nbcol {
+                .col-#{$media}-#{$i}-#{$nbcol}   { @include make-col($i,$nbcol ) };
+                .#{$media}-offset-#{$i}-#{$nbcol} { @include make-offset-left($i,$nbcol ); }  ;
+                .#{$media}-offset-right-#{$i}-#{$nbcol} { @include make-offset-right($i,$nbcol ); } 
+            }
+        }
+        @each $nbcol in 1,2,3,4,5,6,7,10,12,24 {
+            .block-#{$media}-#{$nbcol} > li {
+                width: 100%/$nbcol;
+                padding: 0 em($gutter-width/2) em($gutter-width) em($gutter-width/2); 
+                &:nth-of-type(n) { clear: none;  }
+                &:nth-of-type(#{$nbcol}n+1) { clear: both; }
+            }
+        }
+        /* margin et padding col */
+        .col-#{$media}-pb{ padding-bottom:em($gutter-width/2); }
+        .col-#{$media}-pt{ padding-top:em($gutter-width/2); }
+        .col-#{$media}-mb{ margin-bottom:em($gutter-width/2); }
+        .col-#{$media}-mt{ margin-top:em($gutter-width/2); }
+    }
+    @media only screen and (max-width: $max-with-small) {
+        .col-#{$media}-clear        { clear:left;}     
+        .col-#{$media}-text-right   { text-align:right; }
+        .col-#{$media}-text-left    { text-align:left; }
+        .col-#{$media}-text-center  { text-align:center; }
+        .hide-s { display:none !important; }
+        .show-s { display:block; }
+        .full-s { width:100%; }
+        .text-right-s    { text-align:right; }
+        .text-left-s     { text-align:left; }
+        .text-center-s { text-align:center; }
+    }
+    @media only screen and (max-width: $max-with-small)  and (max-width: $min-with-medium) {
+        .s-only-no-padding   { padding-left:0;padding-right:0; };
+        .s-collapse {
+            &:first-child{ padding-left: 0; }
+            &:last-child{ padding-right: 0; }
+        }
+        .col-s-push-right   { float: right; }
+        .col-s-push-center  { margin-left:auto;margin-right:auto;display:block !important; }
+        .col-s-push-left        { float: left; }
+    }
+    
 $media : 'm';
-	@media only screen and (min-width: $min-with-medium) {
-		.col-#{$media}-1   			{ @include make-col(1,1) };
-		.col-#{$media}-no-padding   { padding-left:0;padding-right:0; };
-		@each $nbcol in 1,2,3,4,5,10,12,24 {
-		  	@for $i from 1 through $nbcol {
-				.col-#{$media}-#{$i}-#{$nbcol}   { @include make-col($i,$nbcol ) };
-				.#{$media}-offset-#{$i}-#{$nbcol} { @include make-offset-left($i,$nbcol ); }  ;
-				.#{$media}-offset-right-#{$i}-#{$nbcol} { @include make-offset-right($i,$nbcol ); }       
-			}
-		}
-		@each $nbcol in 1,2,3,4,5,6,7,8,9,10,11,12,24 {
-			.block-#{$media}-#{$nbcol} > li {
-	    		width: 100%/$nbcol;
-	  		  	padding: 0 em($gutter-width/2) em($gutter-width) em($gutter-width/2); 
-	    		&:nth-of-type(n) { clear: none;  }
-   				&:nth-of-type(#{$nbcol}n+1) { clear: both; }
-   			}
-   		}
-   		.show-s { display:none; }
-	}
-	@media only screen and (min-width: $min-with-medium) and (max-width: $max-with-medium) {
-		.col-#{$media}-clear		{ clear:left;}     
-		.col-#{$media}-text-right	{ text-align:right; }
-		.col-#{$media}-text-left	{ text-align:left; }
-		.col-#{$media}-text-center 	{ text-align:center; }
-		.hide-m { display:none !important; }
-		.m-collapse {
-	  		&:first-child{ padding-left: 0; }
-	  		&:last-child{ padding-right: 0;	}
-		}
-	}
-	@media only screen and (min-width: $min-with-medium)  {
-		.col-#{$media}-clear-upper	{ clear:left;}     
-		.hide-m-upper { display:none !important; }
-		.col-#{$media}-pb{ padding-bottom:em($gutter-width/2); }
-		.col-#{$media}-pt{ padding-top:em($gutter-width/2); }
-		.col-#{$media}-mb{ margin-bottom:em($gutter-width/2); }
-		.col-#{$media}-mt{ margin-top:em($gutter-width/2); }
-	}
-	@media only screen and (max-width: $max-with-medium) {
-		.hide-m-lower { display:none !important; }
-	}
+    @media only screen and (min-width: $min-with-medium) {
+        .col-#{$media}-1            { @include make-col(1,1) };
+        .col-#{$media}-no-padding   { padding-left:0;padding-right:0; };
+        @each $nbcol in 1,2,3,4,5,10,12,24 {
+            @for $i from 1 through $nbcol {
+                .col-#{$media}-#{$i}-#{$nbcol}   { @include make-col($i,$nbcol ) };
+                .#{$media}-offset-#{$i}-#{$nbcol} { @include make-offset-left($i,$nbcol ); }  ;
+                .#{$media}-offset-right-#{$i}-#{$nbcol} { @include make-offset-right($i,$nbcol ); }       
+            }
+        }
+        @each $nbcol in 1,2,3,4,5,6,7,8,9,10,11,12,24 {
+            .block-#{$media}-#{$nbcol} > li {
+                width: 100%/$nbcol;
+                padding: 0 em($gutter-width/2) em($gutter-width) em($gutter-width/2); 
+                &:nth-of-type(n) { clear: none;  }
+                &:nth-of-type(#{$nbcol}n+1) { clear: both; }
+            }
+        }
+        .show-s { display:none; }
+    }
+    @media only screen and (min-width: $min-with-medium) and (max-width: $max-with-medium) {
+        .col-#{$media}-clear        { clear:left;}     
+        .col-#{$media}-text-right   { text-align:right; }
+        .col-#{$media}-text-left    { text-align:left; }
+        .col-#{$media}-text-center  { text-align:center; }
+        .hide-m { display:none !important; }
+        .m-collapse {
+            &:first-child{ padding-left: 0; }
+            &:last-child{ padding-right: 0; }
+        }
+    }
+    @media only screen and (min-width: $min-with-medium)  {
+        .col-#{$media}-clear-upper  { clear:left;}     
+        .hide-m-upper { display:none !important; }
+        .col-#{$media}-pb{ padding-bottom:em($gutter-width/2); }
+        .col-#{$media}-pt{ padding-top:em($gutter-width/2); }
+        .col-#{$media}-mb{ margin-bottom:em($gutter-width/2); }
+        .col-#{$media}-mt{ margin-top:em($gutter-width/2); }
+    }
+    @media only screen and (max-width: $max-with-medium) {
+        .hide-m-lower { display:none !important; }
+    }
 
 $media : 'l';
-	@media only screen and (min-width: $min-with-large) {
-		.col-#{$media}-1   			{ @include make-col(1,1) };
-		.col-#{$media}-no-padding   { padding-left:0;padding-right:0; };
-		@each $nbcol in 1,2,3,4,5,10,12,24 {
-		  	@for $i from 1 through $nbcol {
-				.col-#{$media}-#{$i}-#{$nbcol}   { @include make-col($i,$nbcol ) };
-				.#{$media}-offset-#{$i}-#{$nbcol} { @include make-offset-left($i,$nbcol ); }  ;
-				.#{$media}-offset-right-#{$i}-#{$nbcol} { @include make-offset-right($i,$nbcol ); }       
-			}
-		}
-		@each $nbcol in 1,2,3,4,5,6,7,8,9,10,11,12,24 {
-			.block-#{$media}-#{$nbcol} > li {
-	    		width: 100%/$nbcol;
-	  		  	padding: 0 em($gutter-width/2) em($gutter-width) em($gutter-width/2); 
-	    		&:nth-of-type(n) { clear: none;  }
-   				&:nth-of-type(#{$nbcol}n+1) { clear: both; }
-   			}
-   		}
-	}
-	@media only screen and (min-width: $min-with-large)  {
-		.col-#{$media}-clear		{ clear:left;}     
-		.col-#{$media}-text-right	{ text-align:right; }
-		.col-#{$media}-text-left	{ text-align:left; }
-		.col-#{$media}-text-center 	{ text-align:center; }
-		.l-only-no-padding   { padding-left:0;padding-right:0; };
-		.l-collapse {
-	  		&:first-child{ padding-left: 0; }
-	  		&:last-child{ padding-right: 0;	}
-		}
-	}
-	@media only screen and (min-width: $min-with-large) {
-		.hide-l-upper { display:none !important; }
-		.hide-l { display:none !important; }
-		.col-#{$media}-pb{ padding-bottom:em($gutter-width/2); }
-		.col-#{$media}-pt{ padding-top:em($gutter-width/2); }
-		.col-#{$media}-mb{ margin-bottom:em($gutter-width/2); }
-		.col-#{$media}-mt{ margin-top:em($gutter-width/2); }
-	}
+    @media only screen and (min-width: $min-with-large) {
+        .col-#{$media}-1            { @include make-col(1,1) };
+        .col-#{$media}-no-padding   { padding-left:0;padding-right:0; };
+        @each $nbcol in 1,2,3,4,5,10,12,24 {
+            @for $i from 1 through $nbcol {
+                .col-#{$media}-#{$i}-#{$nbcol}   { @include make-col($i,$nbcol ) };
+                .#{$media}-offset-#{$i}-#{$nbcol} { @include make-offset-left($i,$nbcol ); }  ;
+                .#{$media}-offset-right-#{$i}-#{$nbcol} { @include make-offset-right($i,$nbcol ); }       
+            }
+        }
+        @each $nbcol in 1,2,3,4,5,6,7,8,9,10,11,12,24 {
+            .block-#{$media}-#{$nbcol} > li {
+                width: 100%/$nbcol;
+                padding: 0 em($gutter-width/2) em($gutter-width) em($gutter-width/2); 
+                &:nth-of-type(n) { clear: none;  }
+                &:nth-of-type(#{$nbcol}n+1) { clear: both; }
+            }
+        }
+    }
+    @media only screen and (min-width: $min-with-large)  {
+        .col-#{$media}-clear        { clear:left;}     
+        .col-#{$media}-text-right   { text-align:right; }
+        .col-#{$media}-text-left    { text-align:left; }
+        .col-#{$media}-text-center  { text-align:center; }
+        .l-only-no-padding   { padding-left:0;padding-right:0; };
+        .l-collapse {
+            &:first-child{ padding-left: 0; }
+            &:last-child{ padding-right: 0; }
+        }
+    }
+    @media only screen and (min-width: $min-with-large) {
+        .hide-l-upper { display:none !important; }
+        .hide-l { display:none !important; }
+        .col-#{$media}-pb{ padding-bottom:em($gutter-width/2); }
+        .col-#{$media}-pt{ padding-top:em($gutter-width/2); }
+        .col-#{$media}-mb{ margin-bottom:em($gutter-width/2); }
+        .col-#{$media}-mt{ margin-top:em($gutter-width/2); }
+    }
 
 .clk-wrap-img{
-	position: relative;	
-	width: 100%;
-	padding-bottom:100%;
-	@each $ratio in 10,20,30,40 {
-		&.h#{$ratio}pct{
-			padding-bottom:$ratio+0%;		
-		}
-	}
-	@for $ratio from 50 through 100 {
-		&.h#{$ratio}pct{
-			padding-bottom:$ratio+0%;		
-		}
-	}			
-	@each $ratio in 110,120,130,140,150,160,170,180,190,200 {
-		&.h#{$ratio}pct{
-			padding-bottom:$ratio+0%;		
-		}
-	}
-	&.cover{
-		background-position: center center;
-		-webkit-background-size: cover;
+    position: relative; 
+    width: 100%;
+    padding-bottom:100%;
+    @each $ratio in 10,20,30,40 {
+        &.h#{$ratio}pct{
+            padding-bottom:$ratio+0%;       
+        }
+    }
+    @for $ratio from 50 through 100 {
+        &.h#{$ratio}pct{
+            padding-bottom:$ratio+0%;       
+        }
+    }           
+    @each $ratio in 110,120,130,140,150,160,170,180,190,200 {
+        &.h#{$ratio}pct{
+            padding-bottom:$ratio+0%;       
+        }
+    }
+    &.cover{
+        background-position: center center;
+        -webkit-background-size: cover;
            -moz-background-size: cover;
              -o-background-size: cover;
                 background-size: cover;
-	}
-	& img{
-		@include transition($duration:0.2s, $ease:linear);
-		position: absolute;
-		top:0px;
-		bottom: 0px;
-		left: 0px;
-		right: 0px;
-		margin:auto;
-		max-width: 100%;
-		max-height: 100%;
-		display:block;
-	}
+    }
+    & img{
+        @include transition($duration:0.2s, $ease:linear);
+        position: absolute;
+        top:0px;
+        bottom: 0px;
+        left: 0px;
+        right: 0px;
+        margin:auto;
+        max-width: 100%;
+        max-height: 100%;
+        display:block;
+    }
 }
 .clk-wrap{
-	border:1px green solid;
-	position: relative;	
-	width: 100%;
-	padding-bottom:100%;
-	@each $ratio in 10,20,30,40 {
-		&.h#{$ratio}pct{
-			padding-bottom:$ratio+0%;		
-		}
-	}
-	@for $ratio from 50 through 100 {
-		&.h#{$ratio}pct{
-			padding-bottom:$ratio+0%;		
-		}
-	}			
-	@each $ratio in 110,120,130,140,150,160,170,180,190,200 {
-		&.h#{$ratio}pct{
-			padding-bottom:$ratio+0%;		
-		}
-	}
-	&>*{
-		@include transition($duration:0.2s, $ease:linear);
-		position: absolute;
-		top:0px;
-		bottom: 0px;
-		left: 0px;
-		right: 0px;
-		margin:auto;
-		max-width: 100%;
-		max-height: 100%;
-		display:block;
-	}
-}	
-	
+    border:1px green solid;
+    position: relative; 
+    width: 100%;
+    padding-bottom:100%;
+    @each $ratio in 10,20,30,40 {
+        &.h#{$ratio}pct{
+            padding-bottom:$ratio+0%;       
+        }
+    }
+    @for $ratio from 50 through 100 {
+        &.h#{$ratio}pct{
+            padding-bottom:$ratio+0%;       
+        }
+    }           
+    @each $ratio in 110,120,130,140,150,160,170,180,190,200 {
+        &.h#{$ratio}pct{
+            padding-bottom:$ratio+0%;       
+        }
+    }
+    &>*{
+        @include transition($duration:0.2s, $ease:linear);
+        position: absolute;
+        top:0px;
+        bottom: 0px;
+        left: 0px;
+        right: 0px;
+        margin:auto;
+        max-width: 100%;
+        max-height: 100%;
+        display:block;
+    }
+}   
+    
 
 
 
 .debug{
-	.clk-wrap-img {
-  		background-color:#ffffff;
-  		border:1px #FF6600 dotted;
-  	}
-  	.clk-row {
-  		background-color:#ffffff;
-  		border:1px red dashed;
-		[class*='col-'] {
-			border:1px green solid;
-		}
-		[class*="block-"] {
-			border:1px purple solid;
-			&>li{
-				border:1px yellow solid;
-			}
-		}	 
-	}
+    .clk-wrap-img {
+        background-color:#ffffff;
+        border:1px #FF6600 dotted;
+    }
+    .clk-row {
+        background-color:#ffffff;
+        border:1px red dashed;
+        [class*='col-'] {
+            border:1px green solid;
+        }
+        [class*="block-"] {
+            border:1px purple solid;
+            &>li{
+                border:1px yellow solid;
+            }
+        }    
+    }
 }
 
 @media (min-width: $min-with-large) { // 1200px
-	.clk-row > label, 
-	.clk-row fieldset > legend,
-	.clk-row > legend {
-  		padding-right: 1%;
-  		text-align: right;
-  	}
+    .clk-row > label, 
+    .clk-row fieldset > legend,
+    .clk-row > legend {
+        padding-right: 1%;
+        text-align: right;
+    }
 }
 
 *, *:before, *:after {
